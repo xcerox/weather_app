@@ -2,6 +2,10 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  parent_container: {
+    flex: 1,
+    flexDirection: 'column',
+  },
   container: {
     flex: 1,
     padding: 12,
@@ -27,14 +31,32 @@ const styles = StyleSheet.create({
   },
 });
 
+const Detail = ({detail, isHide = false}) => {
+
+  if (isHide) {
+    return null;
+  }
+
+  return (
+    <Text>Hola</Text>
+  );
+
+}
+
+
 const Hour = ({ info, detail }) => (
-  <View style={styles.container}>
-    <View style={styles.panel_left}>
-      <Text style={styles.text}>{`${info.date} - ${info.time}`}</Text>
-      <Text style={styles.text}>{`${info.description}`}</Text>
+  <View style={styles.parent_container}>
+    <View style={styles.container}>
+      <View style={styles.panel_left}>
+        <Text style={styles.text}>{`${info.date} - ${info.time}`}</Text>
+        <Text style={styles.text}>{`${info.description}`}</Text>
+      </View>
+      <View style={styles.panel_rigth}>
+        <Image source={{ uri: `http://openweathermap.org/img/w/${info.icon}.png` }} style={styles.photo} />
+      </View>
     </View>
-    <View style={styles.panel_rigth}>
-      <Image source={{ uri: `http://openweathermap.org/img/w/${info.icon}.png` }} style={styles.photo} />
+    <View style={styles.container}>
+      <Detail info={detail}/>
     </View>
   </View>
 );

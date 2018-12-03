@@ -4,15 +4,16 @@ import { connect } from 'react-redux';
 
 const style = StyleSheet.create({
   container_parent: {
-    backgroundColor: '#99B898',
-    height: 100,
+    backgroundColor: '#26c6da',
+    height: "30%",
     padding: 7,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderBottomWidth: 3,
+    "borderColor": '#0095a8',
   },
   panel_left: {
     width: '70%',
     flexDirection: 'column',
-    justifyContent: 'space-between'
   },
   panel_rigth: {
     width: '30%',
@@ -20,8 +21,8 @@ const style = StyleSheet.create({
     alignItems: 'center'
   },
   image_weather: {
-    width: 60, 
-    height: 60
+    width: "60%", 
+    height: "60%",
   }
 });
 
@@ -39,11 +40,14 @@ class CurrentHour extends PureComponent {
     return (
       <View style={style.container_parent} >
         <View style={style.panel_left}>
-          {<Text>{`Today at : ${current.info.time}`}</Text>}
-          {<Text>{current.info.description}</Text>}
+          <Text>Santo Domingo</Text>
+          <Text>Grado</Text>
+          <Text>Humedad</Text>
+          <Text>Pressure</Text>
+          <Text>Wind</Text>
         </View>
         <View style={style.panel_rigth}>
-          {<Image source={{uri: `http://openweathermap.org/img/w/${current.info.icon}.png`}} style={style.image_weather}/>}
+          <Image source={{uri: `http://openweathermap.org/img/w/${current.info.icon}.png`}} style={style.image_weather}/>
         </View>
       </View>
     )

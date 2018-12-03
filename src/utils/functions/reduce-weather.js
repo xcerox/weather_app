@@ -2,16 +2,20 @@ import { orderBy } from 'lodash';
 
 const splitDateTxt = (date_tx) => {
   return date_tx.split(" ").reduce((date, time) => {
-     return {date, time};
+     return {date:getDayName(date), time};
   });
 }
 
+function getDayName(dateStr)
+{
+    var date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { weekday: 'long' });        
+}
 
 const reduceWeather = ({data}) => {
 
   let weatherFy = data.list.map((item) => {
     const datetime = splitDateTxt(item.dt_txt);
-
     return {
       detail: {
         temp: item.main.temp,

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import CurrentHour from '../components/CurrentHour';
@@ -11,29 +11,21 @@ import { weatherFetch } from '../store/actions/weather';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: "100%",
     flexDirection: 'column',
     alignItems: 'center',
+
   }
 });
 
 class Home extends PureComponent {
-
-  static navigationOptions = {
-    title: 'Weather',
-    headerStyle: {
-      backgroundColor: '#fff',
-    },
-    headerTitleStyle: {
-      fontWeight: 'bold'
-    },
-  }
 
   componentDidMount() {
     this.props.weatherFetch();
   }
 
   render() {
-    const { isLoading, error } = this.props.weather;
+    const { isLoading } = this.props.weather;
     return (
       <View style={styles.container}>
         <Loading isLoading={isLoading} />
