@@ -10,7 +10,6 @@ class WeatherService {
     if (isNull(me)) {
       me = this;
 
-      //units=imperial
       me.city = 'Santo Domingo';
       me.url = `http://api.openweathermap.org/data/2.5/forecast?appid=${OPENWEATHERMAP_API}&q=${me.city}`;
       me.getAll = me.getAll.bind(me);
@@ -20,7 +19,7 @@ class WeatherService {
   }
 
   getAll() {
-    return axios.get(me.url);
+    return axios.get(`${me.url}&units=imperial`);
   }
 }
 

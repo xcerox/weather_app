@@ -11,9 +11,8 @@ const styles = StyleSheet.create({
     height: '70%',
   },
   separator: {
-    flex: 1,
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E',
+    height: 1,
+    backgroundColor: "#CED0CE",
   },
 });
 
@@ -33,6 +32,7 @@ class Hours extends PureComponent {
           data={data}
           renderItem={({item}) => <Hour {...item}/>}
           ItemSeparatorComponent={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+          keyExtractor={item => item.key}
         />
       </View>
     )
