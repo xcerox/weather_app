@@ -28,7 +28,6 @@ class Hours extends PureComponent {
     return (
       <View style={styles.container_list} >
         <FlatList
-          refreshControl={<RefreshControl refreshing={isLoading} onRefresh={weatherFetch()} />}
           data={data}
           renderItem={({item}) => <Hour {...item}/>}
           ItemSeparatorComponent={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}

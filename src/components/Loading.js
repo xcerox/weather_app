@@ -15,12 +15,9 @@ const styles = StyleSheet.create({
 
 const Loading = ({ isLoading }) => {
   
-  console.log(`isLoading: ${isLoading}`);
-  
   if (!isLoading) {
     return null;
   }
-
 
   return (
     <View style={[styles.container, styles.horizontal]}>
